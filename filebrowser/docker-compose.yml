@@ -2,19 +2,14 @@ version: "3.9"
 
 networks:
   t2_proxy:
-    external:
-      name: t2_proxy
+    name: t2_proxy
 
 services:
   filebrowser:
     image: filebrowser/filebrowser:latest
     container_name: filebrowser
-    security_opt:
-      - no-new-privileges:true
     networks:
       - t2_proxy
-#    ports:
-#      - "82:80" # 80 and 81 are used by Nginx Proxy Manager
     volumes:
 #      - /opt/docker/appdata/filebrowser:/config
       - /opt/docker/appdata/filebrowser/filebrowser.db:/database/filebrowser.db
