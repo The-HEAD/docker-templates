@@ -9,7 +9,7 @@ services:
     image: filebrowser/filebrowser:latest
     container_name: filebrowser
     networks:
-      - t2_proxy
+      - network_traefik_proxy
     volumes:
 #      - /opt/docker/appdata/filebrowser:/config
       - /opt/docker/appdata/filebrowser/filebrowser.db:/database/filebrowser.db
