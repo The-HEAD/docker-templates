@@ -1,0 +1,37 @@
+version: "3.9"
+
+networks:
+  t2_proxy:
+    name: t2_proxy
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - t2_proxy
+#    ports:
+#      - "82:80" # 80 and 81 are used by Nginx Proxy Manager
+    volumes:
+#      - /opt/docker/appdata/filebrowser:/config
+      - /opt/docker/appdata/filebrowser/filebrowser.db:/database/filebrowser.db
+      - /opt/docker/appdata/filebrowser/settings.json:/config/settings.json
+      - /var/www:/srv
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=t2_proxy"
+      ## HTTP Routers
+      - "traefik.http.routers.filebrowser-rtr.entrypoints=https"
+      - "traefik.http.routers.filebrowser-rtr.rule=Host(`files.aretz-online.de`)"
+      - "traefik.http.routers.filebrowser-rtr.tls=true"
+      - "traefik.http.routers.filebrowser-rtr.tls.certresolver=letsencrypt"
+      ## Middlewares
+      - "traefik.http.routers.filebrowser-rtr.middlewares=chain-no-auth@file" 
+      #- "traefik.http.routers.filebrowser-rtr.middlewares=chain-authelia@file,add-filebrowser" 
+      #- "traefik.http.middlewares.add-filebrowser.addPrefix.prefix=/filebrowser"
+      ## HTTP Services
+      - "traefik.http.routers.filebrowser-rtr.service=filebrowser-svc"
+      - "traefik.http.services.filebrowser-svc.loadbalancer.server.port=80"
+
