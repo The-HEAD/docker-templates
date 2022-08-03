@@ -1,9 +1,8 @@
 version: "3.7"
 
 networks:
-  t2_proxy:
-    external:
-      name: t2_proxy
+  network_traefik_proxy:
+    external: true
       
 services:
   flame:
@@ -12,7 +11,7 @@ services:
     security_opt:
       - no-new-privileges:true
     networks:
-      - t2_proxy
+      - network_traefik_proxy
     environment:
       - PASSWORD=m45t3r
     restart: always
@@ -21,7 +20,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration feature
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=t2_proxy"
+      - "traefik.docker.network=network_traefik_proxy"
       ## HTTP Routers
       - "traefik.http.routers.flame-rtr.entrypoints=https"
       - "traefik.http.routers.flame-rtr.rule=Host(`flame.aretz-online.de`)"
