@@ -24,7 +24,8 @@ services:
       - "traefik.http.routers.filebrowser-rtr.tls=true"
       - "traefik.http.routers.filebrowser-rtr.tls.certresolver=letsencrypt"
       ## Middlewares
-      - "traefik.http.routers.filebrowser-rtr.middlewares=chain-oauth@file" 
+      - "traefik.http.routers.filebrowser-rtr.middlewares=chain-basic-auth@file"      # Basic Authentication
+      #- "traefik.http.routers.filebrowser-rtr.middlewares=chain-oauth@file"          # Google OAuth
       #- "traefik.http.routers.filebrowser-rtr.middlewares=chain-authelia@file,add-filebrowser" 
       #- "traefik.http.middlewares.add-filebrowser.addPrefix.prefix=/filebrowser"
       ## HTTP Services
