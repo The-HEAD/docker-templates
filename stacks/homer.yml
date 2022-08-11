@@ -7,8 +7,12 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
+    environment:
+      PUID: ${PUID}
+      PGID: ${GUID}
+      TZ: ${TZ}
     volumes:
-      - "/opt/docker/appdata/homer/assets:/www/assets"
-      - "/opt/docker/appdata/homer/assets:/www/config.yml"
+      - "${DOCKERBASE_DIR}/appdata/homer/assets:/www/assets"
+      - "${DOCKERBASE_DIR}/appdata/homer/assets:/www/config.yml""
     labels:
       - "traefik.enable=true"
