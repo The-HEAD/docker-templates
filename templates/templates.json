@@ -21,7 +21,7 @@
 	"env": [
 		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
 		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
-		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
+		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	}
 	],
 	"volumes": [
 		{
@@ -35,11 +35,11 @@
 		{
 			"bind": "/opt/docker/appdata/filebrowser/settings.json",
 			"container": "/config/settings.json"
-		},
+		}
 	],
 	"labels": [
-		{ "name": "traefik.enable", "value": "true" },
-	],
+		{ "name": "traefik.enable", "value": "true" }
+	]
 },
 
 {
@@ -59,7 +59,7 @@
 	"env": [
 		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
 		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
-		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
+		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	}
 	],
 	"volumes": [
 		{
@@ -72,8 +72,8 @@
 		}
 	],
 	"labels": [
-		{ "name": "traefik.enable", "value": "true" },
-	],
+		{ "name": "traefik.enable", "value": "true" }
+	]
 },
     
   ]
