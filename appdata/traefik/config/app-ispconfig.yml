@@ -9,10 +9,10 @@ http:
       entryPoints:
         - https
       middlewares:
-        - chain-no-auth         # for not authentication 
-        # - chain-basic-auth      # for basic http authentication
-        # - chain-oauth           # for OAuth 
-        # - chain-authelia        # for Authelia
+        - chain-no-auth         # For No Authentication
+        # - chain-basic-auth      # For Basic HTTP Authentication
+        # - chain-oauth           # For Google OAuth 
+        # - chain-authelia        # For Authelia Authentication
       service: ispconfig-service
       tls:
         options: tls-opts@file
