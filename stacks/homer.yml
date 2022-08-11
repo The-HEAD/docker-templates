@@ -1,5 +1,8 @@
 version: "3.7"
 
+networks:
+  network_traefik_proxy
+
 services:
   homer:
     container_name: homer
@@ -7,6 +10,8 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
+    networks:
+      - network_traefik_proxy
     environment:
       PUID: ${PUID}
       PGID: ${GUID}
