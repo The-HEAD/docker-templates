@@ -12,7 +12,6 @@ services:
       PGID: ${GUID}
       TZ: ${TZ}
     volumes:
-      - "${DOCKERBASE_DIR}/appdata/homer/assets:/www/assets"
-      - "${DOCKERBASE_DIR}/appdata/homer/assets:/www/config.yml"
+      - "${DOCKERBASE_DIR}/appdata/homer:/www/assets"
     labels:
       - "traefik.enable=true"
