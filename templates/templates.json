@@ -46,41 +46,7 @@
 	"categories": [
 		"Dashboards"
 	],
-	"description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
-	"image": "b4bz/homer:latest",
-	"logo": "https://raw.githubusercontent.com/the-head/portainer-templates/master/images/homer.png",
-	"name": "homer",
-	"note": "This container requires a yml file within the config volume. See the documentation here https://github.com/bastienwirtz/homer",
-	"platform": "linux",
-	"network": "network_traefik_proxy",
-	"restart_policy": "unless-stopped",
 	"title": "Homer",
-	"type": 1,
-	"env": [
-		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
-		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
-		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	}
-	],
-	"volumes": [
-		{
-			"bind": "/opt/docker/appdata/homer/assets",
-			"container": "/www/assets"
-		},
-		{
-			"bind": "/opt/docker/appdata/homer/",
-			"container": "/www/config.yml"
-		}
-	],
-	"labels": [
-		{ "name": "traefik.enable", "value": "true" }
-	]
-},
-  
-{
-	"categories": [
-		"Dashboards"
-	],
-	"title": "Homer 2",
 	"logo": "https://raw.githubusercontent.com/the-head/portainer-templates/master/images/homer.png",
 	"description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
 	"note": "This container requires a yml file within the config volume. See the documentation here https://github.com/bastienwirtz/homer",
@@ -88,7 +54,6 @@
 	"image": "b4bz/homer:latest",
 	"name": "homer",
 	"type": 2,
-	"network": "network_traefik_proxy",
 	"repository": {
 		"url": "https://github.com/The-HEAD/portainer-templates",
 		"stackfile": "stacks/homer.yml"
