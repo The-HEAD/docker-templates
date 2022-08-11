@@ -48,7 +48,7 @@
 	],
 	"description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
 	"image": "b4bz/homer:latest",
-	"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/homer.png",
+	"logo": "https://raw.githubusercontent.com/the-head/portainer-templates/master/images/homer.png",
 	"name": "homer",
 	"note": "This container requires a yml file within the config volume. See the documentation here https://github.com/bastienwirtz/homer",
 	"platform": "linux",
