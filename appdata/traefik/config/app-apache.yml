@@ -1,0 +1,21 @@
+######################
+## Please change the standard port of apache HTTPS to 9443  !
+
+http:
+  routers:
+    apache-secure:
+      rule: "Host(`www.{{env "DOMAINNAME"}}`,`{{env "DOMAINNAME"}}`)"
+      #rule: "HostHeader(`www.{{env "DOMAINNAME"}}`,`{{env "DOMAINNAME"}}`)"
+      entryPoints:
+        - https
+      middlewares:
+        - chain-no-auth
+      service: apache-service
+      tls:
+        options: tls-opts@file
+        certResolver: letsencrypt
+  services:
+    apache-service:
+      loadBalancer:
+        servers:
+          - url: "http://{{env "SERVER_IP_INT"}}:9443"  # or whatever your external host's IP:port is
