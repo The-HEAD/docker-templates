@@ -74,7 +74,7 @@
 	"labels": [
 		{ "name": "traefik.enable", "value": "true" }
 	]
-},
+}
     
   ]
 }
