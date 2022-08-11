@@ -17,13 +17,20 @@ function error {
 echo "Creating base directory..."
 sudo mkdir -p ${BASE_FOLDER} || error "Failed to create base docker folder!"
 echo "Setting rights to ${USER}:${GROUP}..."
-sudo chown -R ${USER}:${GROUP} ${BASE_FOLDER} || error "Failed to set user rigths"
+sudo chown -R ${USER}:${GROUP} ${BASE_FOLDER} || error "Failed to set rigths"
+sudo chmod -R 755 ${BASE_FOLDER}
 
 echo "Creating a sub-folder structure"
 mkdir -p ${BASE_FOLDER}/appdata || error "Failed to create subfolder appdata folder!"
-mkdir -p ${BASE_FOLDER}/custom || error "Failed to create subfolder custom folder!"
-mkdir -p ${BASE_FOLDER}/logs || error "Failed to create subfolder logs folder!"
+mkdir -p ${BASE_FOLDER}/custom || error "Failed to create subfolder shared folder!"
+mkdir -p ${BASE_FOLDER}/logs || error "Failed to create subfolder shared folder!"
 mkdir -p ${BASE_FOLDER}/shared || error "Failed to create subfolder shared folder!"
-mkdir -p ${BASE_FOLDER}/secrets || error "Failed to create subfolder secrets folder!"
+mkdir -p ${BASE_FOLDER}/secrets || error "Failed to create subfolder shared folder!"
+
+touch ${BASE_FOLDER}/appdata/test.txt || error "Failed to create traefik route config!"
+
+echo "Setting rights to ${USER}:${GROUP} again for all files/folders..."
+chown -R ${USER}:${GROUP} ${BASE_FOLDER} || error "Failed to CHOWN"
+chmod -R 755 ${BASE_FOLDER} || error "Failed to CHMOD"
 
 echo "Setup complete."
