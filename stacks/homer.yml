@@ -11,6 +11,8 @@ services:
       PUID: ${PUID}
       PGID: ${GUID}
       TZ: ${TZ}
+    networks:
+      - ${TRAEFIK_NETWORK}
     volumes:
       - "${DOCKERBASE_DIR}/appdata/homer:/www/assets"
     labels:
