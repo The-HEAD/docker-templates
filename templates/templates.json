@@ -17,21 +17,21 @@
 	"restart_policy": "unless-stopped",
 	"title": "FileBrowser",
 	"type": 1,
-    "volumes": [
-      {
-        "bind": "/var/www",
-        "container": "/srv"
-      },
-      {
-        "bind": "/opt/docker/appdata/filebrowser/filebrowser.db",
-        "container": "/database/filebrowser.db"
-      },
-      {
-        "bind": "/opt/docker/appdata/filebrowser/settings.json",
-        "container": "/config/settings.json"
-      }
+	"volumes": [
+		{
+			"bind": "/var/www",
+			"container": "/srv"
+		},
+		{
+			"bind": "/opt/docker/appdata/filebrowser/filebrowser.db",
+			"container": "/database/filebrowser.db"
+		},
+		{
+			"bind": "/opt/docker/appdata/filebrowser/settings.json",
+			"container": "/config/settings.json"
+		},
 	],
-}    
+},
     
   ]
 }
