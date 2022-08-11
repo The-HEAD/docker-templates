@@ -55,7 +55,7 @@
 	"network": "network_traefik_proxy",
 	"restart_policy": "unless-stopped",
 	"title": "Homer",
-	"type": 2,
+	"type": 1,
 	"env": [
 		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
 		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
