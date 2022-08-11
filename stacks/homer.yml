@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  homer:
+    container_name: homer
+    image: b4bz/homer:latest
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - "/opt/docker/appdata/homer/assets:/www/assets"
+      - "/opt/docker/appdata/homer/assets:/www/config.yml"
+    labels:
+      - "traefik.enable=true"
