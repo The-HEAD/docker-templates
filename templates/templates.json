@@ -2,5 +2,36 @@
   "version": "2",
   "templates": [
 
+{
+	"categories": [
+		"Tools"
+	],
+	"description": "Web File Browser which can be used as a middleware or standalone app.",
+	"image": "filebrowser/filebrowser:latest",
+	"logo": "https://raw.githubusercontent.com/the-head/portainer-templates/master/images/filebrowser.png",
+	"name": "filebrowser",
+	"note": "The default user and password is admin/admin.",
+	"officialDoc": "https://filebrowser.org/installation#docker",
+	"webpage": "https://filebrowser.org/"
+	"platform": "linux",
+	"restart_policy": "unless-stopped",
+	"title": "FileBrowser",
+	"type": 1,
+    "volumes": [
+      {
+        "bind": "/var/www",
+        "container": "/srv"
+      },
+      {
+        "bind": "/opt/docker/appdata/filebrowser/filebrowser.db",
+        "container": "/database/filebrowser.db"
+      },
+      {
+        "bind": "/opt/docker/appdata/filebrowser/settings.json",
+        "container": "/config/settings.json"
+      }
+	],
+}    
+    
   ]
 }
