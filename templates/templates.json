@@ -12,11 +12,17 @@
 	"name": "filebrowser",
 	"note": "The default user and password is admin/admin.",
 	"officialDoc": "https://filebrowser.org/installation#docker",
-	"webpage": "https://filebrowser.org/"
+	"webpage": "https://filebrowser.org/",
 	"platform": "linux",
 	"restart_policy": "unless-stopped",
 	"title": "FileBrowser",
 	"type": 1,
+	"network": "network_traefik_proxy",
+	"env": [
+		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
+		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
+		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
+	],
 	"volumes": [
 		{
 			"bind": "/var/www",
@@ -30,6 +36,43 @@
 			"bind": "/opt/docker/appdata/filebrowser/settings.json",
 			"container": "/config/settings.json"
 		},
+	],
+	"labels": [
+		{ "name": "traefik.enable", "value": "true" },
+	],
+},
+
+{
+	"categories": [
+		"Dashboards"
+	],
+	"description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
+	"image": "b4bz/homer:latest",
+	"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/homer.png",
+	"name": "homer",
+	"note": "This container requires a yml file within the config volume. See the documentation here https://github.com/bastienwirtz/homer",
+	"platform": "linux",
+	"network": "network_traefik_proxy",
+	"restart_policy": "unless-stopped",
+	"title": "Homer",
+	"type": 1,
+	"env": [
+		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
+		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
+		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
+	],
+	"volumes": [
+		{
+			"bind": "/opt/docker/appdata/homer/assets",
+			"container": "/www/assets"
+		},
+		{
+			"bind": "/opt/docker/appdata/homer/",
+			"container": "/www/config.yml"
+		}
+	],
+	"labels": [
+		{ "name": "traefik.enable", "value": "true" },
 	],
 },
     
