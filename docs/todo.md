@@ -4,6 +4,7 @@
 * https://github.com/SelfhostedPro/selfhosted_templates
 
 Workflow Automation
+
 JSON Files per App
 
 ## Stacks
