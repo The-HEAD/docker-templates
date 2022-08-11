@@ -96,6 +96,7 @@
 		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
 		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
 		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
+		{ 	"default": "network_traefik_proxy",	"label": "TRAEFIK_NETWORK",		"name": "TRAEFIK_NETWORK"	}
 		{ 	"default": "/opt/docker",	"label": "DOCKERBASE_DIR",		"name": "DOCKERBASE_DIR"	}
 	]
 }
