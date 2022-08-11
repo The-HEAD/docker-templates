@@ -88,6 +88,7 @@
 	"image": "b4bz/homer:latest",
 	"name": "homer",
 	"type": 2,
+	"network": "network_traefik_proxy",
 	"repository": {
 		"url": "https://github.com/The-HEAD/portainer-templates",
 		"stackfile": "stacks/homer.yml"
@@ -96,7 +97,6 @@
 		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
 		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
 		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
-		{ 	"default": "network_traefik_proxy",	"label": "TRAEFIK_NETWORK",		"name": "TRAEFIK_NETWORK"	}
 		{ 	"default": "/opt/docker",	"label": "DOCKERBASE_DIR",		"name": "DOCKERBASE_DIR"	}
 	]
 }
