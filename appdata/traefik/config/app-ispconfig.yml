@@ -1,0 +1,26 @@
+######################
+## Forward Traefik to internal ISPConfig installation
+
+http:
+  routers:
+    ispconfig-secure:
+      rule: "Host(`panel.{{env "DOMAINNAME"}}`)"
+      #rule: "HostHeader(`panel.{{env "DOMAINNAME"}}`)"
+      entryPoints:
+        - https
+      middlewares:
+        - chain-no-auth
+      service: ispconfig-service
+      tls:
+        options: tls-opts@file
+        certResolver: letsencrypt
+  services:
+    ispconfig-service:
+      loadBalancer:
+        servers:
+          - url: "{{env "SERVER_IP_INT"}}:8080"  # or whatever your external host's IP:port is / IP from Bridge Network
+        serversTransport: ISPtransport
+
+  serversTransports:
+    ISPtransport:
+      insecureSkipVerify: true
