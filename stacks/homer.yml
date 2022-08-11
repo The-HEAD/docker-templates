@@ -1,7 +1,8 @@
 version: "3.7"
 
 networks:
-  network_traefik_proxy
+  network_traefik_proxy:
+    external: true
 
 services:
   homer:
