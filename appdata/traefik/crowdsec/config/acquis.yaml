@@ -1,0 +1,15 @@
+filenames:
+ - /var/log/auth.log
+ - /var/log/mail.log
+ - /var/log/syslog
+labels:
+  type: syslog
+---
+filename: /var/log/apache2/*.log
+labels:
+  type: apache2
+---
+filenames:
+  - /opt/docker/logs/traefik/*.log
+labels:
+  type: traefik
