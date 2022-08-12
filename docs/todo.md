@@ -18,6 +18,7 @@ JSON Files per App
 - Leantime
 - Uptime Kuma (incl Telegram Alert)
 - Snippet-box
+- Paperless-NGX
 - CrowdSec out of Traefik
 ## Other
 - Traefik + Watchtower
