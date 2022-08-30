@@ -70,8 +70,7 @@
 		"Dashboards"
 	],
 	"title": "Homepage",
-	"logo": "https://raw.githubusercontent.com/the-head/portainer-templates/master/images/homepage.png",
-	"description": "A dashboard with widgets, ressource monitoring and docker integration customizable via yaml.",
+	"description": "A highly customizable homepage (or startpage / application dashboard) with Docker and service API integrations.",
 	"note": "See the documentation here https://github.com/benphelps/homepage",
 	"platform": "linux",
 	"image": "benphelps/homepage:latest",
