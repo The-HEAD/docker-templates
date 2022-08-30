@@ -64,6 +64,29 @@
 		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
 		{ 	"default": "/opt/docker",	"label": "DOCKERBASE_DIR",		"name": "DOCKERBASE_DIR"	}
 	]
+},
+{
+	"categories": [
+		"Dashboards"
+	],
+	"title": "Homepage",
+	"logo": "https://raw.githubusercontent.com/the-head/portainer-templates/master/images/homepage.png",
+	"description": "A dashboard with widgets, ressource monitoring and docker integration customizable via yaml.",
+	"note": "See the documentation here https://github.com/benphelps/homepage",
+	"platform": "linux",
+	"image": "benphelps/homepage:latest",
+	"name": "homepage",
+	"type": 2,
+	"repository": {
+		"url": "https://github.com/The-HEAD/portainer-templates",
+		"stackfile": "stacks/homepage.yml"
+	},
+	"env": [
+		{ 	"default": "1000",		"label": "PUID",	"name": "PUID"	},
+		{ 	"default": "1000",		"label": "PGID",	"name": "PGID"	},
+		{ 	"default": "Europe/Berlin",	"label": "TZ",		"name": "TZ"	},
+		{ 	"default": "/opt/docker",	"label": "DOCKERBASE_DIR",		"name": "DOCKERBASE_DIR"	}
+	]
 }
 	  
   ]
