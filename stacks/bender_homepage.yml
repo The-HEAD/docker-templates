@@ -1,0 +1,22 @@
+version: "3.9"
+
+networks:
+  network_traefik_proxy:
+    external: true
+
+services:
+  homepage:
+    image: ghcr.io/benphelps/homepage:latest
+    container_name: homepage
+    networks:
+      - network_traefik_proxy
+    environment:
+      PUID: ${PUID}
+      PGID: ${GUID}
+      TZ: ${TZ}
+    volumes:
+      - ${DOCKERBASE_DIR}/appdata/homepage:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
