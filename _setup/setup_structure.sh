@@ -29,8 +29,12 @@ mkdir -p ${BASE_FOLDER}/secrets || error "Failed to create subfolder shared fold
 echo "${BASE_FOLDER}/secrets created - you should run the following command after finsihing your setup to secure your secrets:"
 echo ">  sudo chown root:root ${BASE_FOLDER}/secrets && sudo chmod 600  ${BASE_FOLDER}/secrets "
 
+###############
+## Set the access Right for the Subfolders
 echo "Setting rights to ${USER}:${GROUP} again for all files/folders..."
 chown -R ${USER}:${GROUP} ${BASE_FOLDER} || error "Failed to CHOWN"
+chmod -R 775 ${BASE_FOLDER} || error "Failed to CHMOD"
+
 # chmod -R 775 ${BASE_FOLDER} || error "Failed to CHMOD"
 # better way with different rights for folders and existing files (if they exist)
 sudo find ${BASE_FOLDER} -type d -exec chmod 775 {} + || error "Failed to CHMOD for Directories"
